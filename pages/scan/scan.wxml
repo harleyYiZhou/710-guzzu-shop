@@ -18,8 +18,8 @@
         <view class="layout-row layout-wrap message-content">
           <image mode='widthFix' src="{{userTicket.product.image.url}}" class="width-20 "></image>
             <view class="width-60 message-text">
-              <view class="message-title">{{userTicket.product.name.zh}}</view>
-              <view class="message-description">{{userTicket.product.description.zh}}</view>
+              <view class="message-title">{{userTicket.product.name.en}}</view>
+              <view class="message-description">{{userTicket.product.description.en}}</view>
             </view>
             <view class="message-account text-right">
               <view class="message-price">￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</view>

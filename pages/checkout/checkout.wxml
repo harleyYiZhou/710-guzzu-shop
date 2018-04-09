@@ -11,7 +11,7 @@
   </view>
   <view class="ticket-message">
     <image class="ticket-img" mode='widthFix' src="{{userTicket.product.image.url}}"></image>
-    <view class="ticket-name">{{userTicket.product.name.zh}}</view>
+    <view class="ticket-name">{{userTicket.product.name.en}}</view>
   </view>
   <view class="ticket-account">
      <view class="layout-row layout-wrap"><text class="width-20 text-left">商品总额：</text><text class="text-right width-80">￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</text></view>

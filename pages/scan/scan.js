@@ -30,6 +30,7 @@ Page({
 		})
 	},
 	scan: function () {
+    util.checkLogin();
 		wx.scanCode({
 			success: (res) => {
 				console.log('scan', res)
@@ -90,6 +91,7 @@ Page({
 		})
 	},
 	getByTicketNo: function () {
+    util.checkLogin();
 		if (!this.data.ticketNo){
 			wx.showToast({
 				title: 'Invalid ticketNo',
@@ -158,6 +160,7 @@ Page({
 			});
 	},
   jumpToCheckout: function(){
+    util.checkLogin();
     var str1 = this.data.storeId;
     var str2= this.data.ticketNo;
     wx.navigateTo({

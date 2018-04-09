@@ -103,6 +103,7 @@ Page({
   },
 
   consume: function(){
+    util.checkLogin();
     let ticketNo = this.data.ticketNo || this.data.userTicket.ticketNo;
     if (!ticketNo) {
       wx.showToast({
