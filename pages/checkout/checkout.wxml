@@ -27,9 +27,9 @@
   </view>
   <view class="ticket-date">
   <view class="layout-row layout-wrap"><text class="width-20 text-left">券码编号：</text><text>{{userTicket.ticketNo}}</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-left">使用期限：</text><text>{{beginTime}} 至 {{endTime}}</text></view>
+    <view wx:if="{{userTicket.product.eventStartTime!=null}}" class="layout-row layout-wrap"><text class="width-20 text-left">使用期限：</text><text>{{beginTime}} 至 {{endTime}}</text></view>
     <view class="layout-row layout-wrap"><text class="width-20 text-left">创建时间：</text><text>{{createTime}}</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-left">使用时间：</text><text>{{useTime}}</text></view>
+    <view wx:if="{{isClick}}" class="layout-row layout-wrap"><text class="width-20 text-left">使用时间：</text><text>{{useTime}}</text></view>
   </view> 
   
   <!-- <view class="ticket-detail">

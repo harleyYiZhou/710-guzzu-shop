@@ -43,7 +43,7 @@ Page({
           })
 					wx.showLoading();
 					let params = {
-						storeId: this.data.storeId,
+						storeId: wx.getStorageSync('storeId'),
 						ticketNo: res.result
 					};
 					util.callApi('UserTicket.get', params).then(

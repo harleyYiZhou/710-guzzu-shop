@@ -23,7 +23,7 @@
 }
 .layout-btn{
   margin-bottom: 20px;
-  bottom: -200px;
+   bottom: -100px; 
   width: 30%;
 }
 .message{

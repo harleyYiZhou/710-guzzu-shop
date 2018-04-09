@@ -23,6 +23,13 @@ Page({
   
   },
 
+  //获取邮箱
+  emailInput: function(e){
+    this.setData({
+      email: e.detail.value
+    })
+  },
+
   // 获取输入密码 
   passwordInput: function (e) {
     this.setData({
@@ -32,6 +39,8 @@ Page({
 
   login: function () {
     var that = this;
+    console.log(that.data.email);
+    console.log(that.data.password);    
     if (this.data.email.length == 0 || this.data.password.length == 0) {
       wx.showToast({
         title: '邮箱和密码不能为空',
@@ -54,7 +63,7 @@ Page({
         success: function (res) {
           console.log(res.data)
           if (res.data.user) {
-           
+            console.log(1);
             wx.setStorageSync('gsid', res.data._id);
             wx.setStorageSync('email', res.data.email);
             wx.navigateBack();
