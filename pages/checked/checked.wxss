@@ -1,0 +1,15 @@
+/* pages/checked/checked.wxss */
+.checked-text{
+  font-size: 80rpx;
+}
+.checked-icon{
+  margin-bottom: 80rpx;
+}
+.back-btn{
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  /* background-color: green; */
+  border-radius: 3px
+}

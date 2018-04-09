@@ -1,0 +1,47 @@
+<!--pages/checkout/checkout.wxml-->
+<view class="checkout-container ticket-detail">
+  <view class="ticket-no">
+    <view class="group">
+      <icon wx:if="{{isClick}}" class="icon" type="success" size="30" />
+      <icon wx:if="{{!isClick}}" class="icon" type="cancel" size="30" />
+      <text><text>电子券状态：</text>
+      <text>{{status}}</text></text>
+      
+    </view>
+  </view>
+  <view class="ticket-message">
+    <image class="ticket-img" mode='widthFix' src="{{userTicket.product.image.url}}"></image>
+    <view class="ticket-name">{{userTicket.product.name.zh}}</view>
+  </view>
+  <view class="ticket-account">
+     <view class="layout-row layout-wrap"><text class="width-20 text-left">商品总额：</text><text class="text-right width-80">￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-left">商品单价：</text><text class="text-right width-80">￥{{userTicket.product.price/100}}</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-left">数量：</text><text class="text-right width-80">{{userTicket.product.purchased}}</text></view>
+    <view class="bar"></view>
+    <view class="text-right"><text>实付金额:</text><text>￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</text></view>
+  </view> 
+  <view class="ticket-buyer">
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">购买人姓名：</text><text class="width-80">{{buyerName}}</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">购买人手机：</text><text class="width-80">{{buyerPhone}}</text></view>
+    <view wx:if="{{email!=null}}" class="layout-row layout-wrap"><text class="width-20 text-right">购买人邮箱：</text><text class="width-80">{{email}}</text></view>
+  </view>
+  <view class="ticket-date">
+  <view class="layout-row layout-wrap"><text class="width-20 text-left">券码编号：</text><text>{{userTicket.ticketNo}}</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-left">使用期限：</text><text>{{beginTime}} 至 {{endTime}}</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-left">创建时间：</text><text>{{createTime}}</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-left">使用时间：</text><text>{{useTime}}</text></view>
+  </view> 
+  
+  <!-- <view class="ticket-detail">
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">编号：</text><text class="width-60">45225423584</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">用户名：</text><text>Harley</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">价格：</text><text>￥100*2</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">使用期限：</text><text>2018-3-1至2018-4-4</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">创建时间：</text><text>2018-3-5 12:00</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">使用时间：</text><text>2018-4-1 13:00</text></view>
+    <view class="layout-row layout-wrap"><text class="width-20 text-right">状态：</text><text>未核销</text></view>
+  </view> -->
+  <view style="position: relative">
+    <button type="primary" disabled="{{isClick}}" bindtap='consume' class="consume-btn">核销</button>
+  </view>
+</view>

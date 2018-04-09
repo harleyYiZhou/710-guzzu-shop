@@ -1,0 +1,68 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx391628a6dc5c9c81",
+	"projectname": "711-guzzu-shop",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "scan",
+					"pathName": "pages/scan/scan",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login-again",
+					"pathName": "pages/login-again/login-again",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "checkout",
+					"pathName": "pages/checkout/checkout",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "checked",
+					"pathName": "pages/checked/checked",
+					"query": ""
+				}
+			]
+		}
+	}
+}

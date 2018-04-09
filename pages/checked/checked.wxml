@@ -1,0 +1,12 @@
+<!--pages/checked/checked.wxml-->
+<view class="container">
+  <view>
+    <icon class="checked-icon" type="success" size="200"></icon>
+  </view> 
+  <view>
+    <text class="checked-text">已核销</text>
+  </view>
+  <view style="position: relative">
+    <button type="primary" disabled="{{isClick}}" bindtap='backTo' class="back-btn">回到主页</button>
+  </view>
+</view>
