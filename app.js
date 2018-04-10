@@ -1,6 +1,22 @@
 //app.js
+const translate=require('./utils/translate.js');
+var util=require('./utils/util.js');
+
 App({
   onLaunch: function () {
+    //中英文显示
+    let that = this;
+    var value = wx.getStorageSync('locale');
+    if (value) {
+      that.globalData.locale = value;
+    } else {
+      wx.setStorage({
+        key: 'locale',
+        data: 'zh'
+      });
+    }
+    that.globalData.trans = require(`./locales/${that.globalData.locale}`);
+
     // 展示本地存储能力
     wx.removeStorageSync('gsid');
     // 登录
@@ -31,6 +47,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    locale: 'zh'
   }
 })

@@ -3,8 +3,8 @@
     "pages/login/login",
     "pages/scan/scan",
     "pages/login-again/login-again",
-    "pages/checkout/checkout",
-    "pages/checked/checked"
+    "pages/complete-check/complete-check",
+    "pages/checkout/checkout"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,5 +1,6 @@
 // pages/scan/scan.js
 var util = require('../../utils/util.js');
+const translate = require('../../utils/translate.js');
 
 Page({
 
@@ -13,6 +14,9 @@ Page({
 		userTicket: null
 	},
 	onLoad: function (options) {
+    if (!this.data.locale || this.data.locale !== app.globalData.locale) {
+      translate.langData(this);
+    }
     var that=this;
     util.callApi('Auth.getCurrentSession',{}).then(function(res){
       console.log(res);
@@ -91,6 +95,7 @@ Page({
 		})
 	},
 	getByTicketNo: function () {
+    var that=this;
     util.checkLogin();
 		if (!this.data.ticketNo){
 			wx.showToast({
@@ -115,6 +120,11 @@ Page({
 			},
 			err => {
 				console.log(err);
+        wx.showToast({
+          title: that.data.trans.invalidTicket,
+          icon: 'loading',
+          duration: 1000
+        })
 				this.setData({
 					userTicket: ''
 				});
@@ -125,7 +135,7 @@ Page({
 		let ticketNo = this.data.ticketNo || this.data.userTicket.ticketNo;
 		if (!ticketNo) {
 			wx.showToast({
-				title: 'Invalid ticketNo',
+        title: that.data.trans.invalidTicket,
 				icon: 'loading',
 				duration: 1000
 			})
@@ -148,7 +158,7 @@ Page({
 				duration: 1500
 			})
       wx.navigateTo({
-        url: '../checked/checked'
+        url: '../complete-check/complete-check'
       })
 		},
 			err => {

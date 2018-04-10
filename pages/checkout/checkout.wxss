@@ -79,6 +79,9 @@ page{
 .width-60{
   width: 60%;
 }
+.width-70{
+  width: 70%;
+}
 .width-80{
   width: 80%
 }
@@ -103,5 +106,5 @@ page{
   height: 23px;
   position: absolute;
   top: -10rpx;
-  left: 160rpx;
+  left: 120rpx;
 }

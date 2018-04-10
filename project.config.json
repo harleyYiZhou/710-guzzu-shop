@@ -58,8 +58,8 @@
 				},
 				{
 					"id": -1,
-					"name": "checked",
-					"pathName": "pages/checked/checked",
+					"name": "complete-check",
+					"pathName": "pages/complete-check/complete-check",
 					"query": ""
 				}
 			]

@@ -7,21 +7,25 @@
         <!--账号-->
         <view class="inputView">
             <image class="nameImage" src="../images/name.png"></image>
-            <label class="loginLab">邮箱</label>
-            <input class="inputText" placeholder="请输入账号" bindinput="emailInput" value='{{email}}' />
+            <label class="loginLab">{{trans.email}}</label>
+            <input class="inputText" placeholder="{{trans.email_text}}" bindinput="emailInput" value='{{email}}' />
         </view>
         <view class="line"></view>
 
         <!--密码-->
         <view class="inputView">
             <image class="keyImage" src="../images/key.png"></image>
-            <label class="loginLab">密码</label>
-            <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" />
+            <label class="loginLab">{{trans.password}}</label>
+            <input class="inputText" password="true" placeholder="{{trans.password_text}}" bindinput="passwordInput" />
         </view>
 
         <!--按钮-->
         <view class="loginBtnView">
-            <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">登录</button>
+            <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">{{trans.login_btn}}</button>
         </view>
+    </view>
+    <view class="language-btn">
+      <button size="mini" lang='zh' type="warn" class="zh-btn" bindtap='chooseLang' data-lang="zh">中文</button>
+      <button size="mini" lang='en' type="warn" class="en-btn" bindtap='chooseLang' data-lang="en">Eng</button>
     </view>
 </view>

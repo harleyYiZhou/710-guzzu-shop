@@ -1,17 +1,19 @@
 <!--pages/scan/scan.wxml-->
 <view >
     <view class="container">
-      <button class="circle-btn" bindtap="scan">QR</button>
+      <button class="circle-btn" bindtap="scan">
+        <image class="scan_img" src="../images/scan.png"></image>
+      </button>
       <text>or</text>
       <view class="display-flex input-group">
-          <input class="numInput" placeholder='请输入编号' bindinput="bindKeyInput" auto-focus='true'></input>
-          <button class="submit-btn" bindtap="getByTicketNo">确定</button>
+          <input class="numInput" placeholder='{{trans.input_text}}' bindinput="bindKeyInput" auto-focus='true'></input>
+          <button class="submit-btn" bindtap="getByTicketNo">{{trans.submit_btn}}</button>
       </view>
     </view>
     <block wx:if='{{userTicket}}'>
       <view bindtap='jumpToCheckout' class="message">
         <view class="message-No">
-          <text>电子券编号：</text>
+          <text>{{trans.ticketNo}}：</text>
           <text>{{userTicket.ticketNo}}</text>
         </view>
         <view class="bar"></view>
@@ -28,8 +30,8 @@
         </view>
         <view class="bar"></view>
         <view class="text-right message-btn">
-          <button wx:if='{{userTicket.status==="active"}}' class="width-20" size="mini" type='primary' catchtap="consume">核销</button>
-          <button wx:if='{{userTicket.status==="consumed"}}' class="width-20" size="mini" disabled='true' type='primary'>已核销</button>
+          <button wx:if='{{userTicket.status==="active"}}' class="width-20 message-btn"  type='primary' catchtap="consume">{{trans.checkTicket}}</button>
+          <button wx:if='{{userTicket.status==="consumed"}}' class="width-20 message-btn" size="mini" disabled='true' type='primary'>{{trans.ischecked}}</button>
         </view>
       </view>
     </block>
@@ -39,5 +41,5 @@
         <button bindtap="jumpToCheckout">查看详情</button>
         <button wx:if='{{userTicket.status==="active"}}' class="submit-btn" bindtap="consume">核销</button>
     </block> -->
-    <button class="layout-btn" bindtap="signout">登出</button>
+    <button class="layout-btn" bindtap="signout">{{trans.logout}}</button>
 </view>

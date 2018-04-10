@@ -1,4 +1,5 @@
 // pages/login-again/login-again.js
+const translate = require('../../utils/translate.js');
 Page({
 
   /**
@@ -13,7 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (!this.data.locale || this.data.locale !== app.globalData.locale) {
+      translate.langData(this);
+    }
   },
 
   /**
@@ -43,7 +46,7 @@ Page({
     console.log(that.data.password);    
     if (this.data.email.length == 0 || this.data.password.length == 0) {
       wx.showToast({
-        title: '邮箱和密码不能为空',
+        title: that.data.trans.login_error1,
         icon: 'loading',
         duration: 2000
       })
@@ -69,7 +72,7 @@ Page({
             wx.navigateBack();
           } else {
             wx.showToast({
-              title: '账号密码不正确',
+              title: that.data.trans.login_error,
               icon: 'none',
               duration: 2000
             })

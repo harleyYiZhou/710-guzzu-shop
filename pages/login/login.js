@@ -1,11 +1,19 @@
 const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
 // const API_PREFIX = 'http://192.168.31.253:4020/mpapi/2/';
+const app=getApp();
+const translate=require('../../utils/translate.js');
 
 Page({
 	data: {
 		email: '',
 		password: ''
 	},
+  onLoad: function (options) {
+    console.log(app.globalData);
+    if (!this.data.locale || this.data.locale !== app.globalData.locale) {
+      translate.langData(this);
+    }
+  },
 	onShow() {
 		this.setData({
 			email: wx.getStorageSync('email') || ''
@@ -29,7 +37,7 @@ Page({
 		var that = this;
 		if (this.data.email.length == 0 || this.data.password.length == 0) {
 			wx.showToast({
-				title: '邮箱和密码不能为空',
+				title: this.data.trans.loading,
 				icon: 'loading',
 				duration: 2000
 			})
@@ -51,10 +59,10 @@ Page({
 					if (res.data.user) {
 						wx.setStorageSync('gsid', res.data._id);
 						wx.setStorageSync('email', res.data.user.email);
-						toScan();
+						toScan(that);
 					} else {
 						wx.showToast({
-							title: '账号密码不正确',
+							title: that.data.trans.login_error,
 							icon: 'none',
 							duration: 2000
 						})
@@ -62,12 +70,18 @@ Page({
 				}
 			})
 		}
-	}
+	},
+  chooseLang: function (e) {
+    console.log(e.target.dataset.lang);
+    var locale = e.target.dataset.lang;
+    translate.setLocale(locale);
+    translate.langData(this);
+  }
 })
 
-function toScan() {
+function toScan(that) {
 	wx.showToast({
-		title: '登录成功',
+		title: that.data.trans.success,
 		duration: 1500
 	})
 	setTimeout(() => {
@@ -76,3 +90,4 @@ function toScan() {
 		})
 	}, 1000)
 }
+

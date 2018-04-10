@@ -1,5 +1,7 @@
 // pages/checkout/checkout.js
 var util =require("../../utils/util.js");
+const translate = require('../../utils/translate.js');
+const app=getApp();
 
 Page({
 
@@ -23,6 +25,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (!this.data.locale || this.data.locale !== app.globalData.locale) {
+      translate.langData(this);
+    }
     var that=this;
     console.log(options);
  
@@ -42,16 +47,31 @@ Page({
           userTicket: res,
         });
         wx.hideLoading();
-        if (res.status == 'consumed') {
-          that.setData({
-            status: '已核销',
-            isClick: true
-          })
-        }else{
-          that.setData({
-            status: '未核销',
-             isClick: false
-          })
+        if (app.globalData.locale === 'zh') {
+          if (res.status == 'consumed') {
+            that.setData({
+              status: '已核销',
+              isClick: true
+            })
+          } else {
+            that.setData({
+              status: '未核销',
+              isClick: false
+            })
+          }
+        }
+        if (app.globalData.locale === 'en'){
+          if (res.status == 'consumed') {
+            that.setData({
+              status: 'consumed',
+              isClick: true
+            })
+          } else {
+            that.setData({
+              status: 'consume',
+              isClick: false
+            })
+          }
         }
         //转化时间格式
         if(res){
@@ -130,7 +150,7 @@ Page({
         duration: 1500
       })
       wx.navigateTo({
-        url: '../checked/checked'
+        url: '../complete-check/complete-check'
       })
     },
       err => {

@@ -9,7 +9,8 @@ page{
  flex-direction: column; 
  padding: 0; 
  box-sizing: border-box; 
- background-color: #f2f2f2
+ background-color: #f2f2f2;
+ position: relative;
 } 
   
 /*登录图片*/
@@ -72,4 +73,13 @@ page{
 .loginBtn { 
  width: 80%; 
  margin-top: 35px; 
+}
+.language-btn{
+  position: absolute;
+  bottom: 15rpx;
+  width: 100%;
+  text-align: center;
+}
+.zh-btn{
+  margin-right: 10rpx;
 }
