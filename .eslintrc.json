@@ -1,0 +1,9 @@
+{
+	"extends": "guzzu",
+	"globals": {
+		"App": true,
+		"wx": true,
+		"getApp": true,
+		"Page": true
+	}
+}
