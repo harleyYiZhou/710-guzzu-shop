@@ -1,3 +1,6 @@
+// const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
+// const API_PREFIX = 'http://192.168.31.253:4020/mpapi/2/';
+const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
 
 function checkLogin () {
 	console.log(1);
@@ -10,9 +13,6 @@ function checkLogin () {
 }
 
 function callApi (url, params) {
-	// const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
-	// const API_PREFIX = 'http://192.168.31.253:4020/mpapi/2/';
-	const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
 	var gsid = wx.getStorageSync('gsid');
 	return new Promise((resolve, reject) => {
 		wx.request({

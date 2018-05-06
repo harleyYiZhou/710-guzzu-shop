@@ -1,45 +1,40 @@
 <!--pages/scan/scan.wxml-->
 <view >
-    <view class="container">
-      <button class="circle-btn" bindtap="scan">
-        <image class="scan_img" src="../images/scan.png"></image>
-      </button>
-      <text>or</text>
-      <view class="display-flex input-group">
-          <input class="numInput" placeholder='{{trans.input_text}}' bindinput="bindKeyInput" auto-focus='true'></input>
-          <button class="submit-btn" bindtap="getByTicketNo">{{trans.submit_btn}}</button>
+  <view class="container">
+    <button class="circle-btn" bindtap="scan">
+      <image class="scan_img" src="../images/scan.png"></image>
+    </button>
+    <text>or</text>
+    <view class="display-flex input-group">
+      <input class="numInput" placeholder="{{trans.input_text}}" bindinput="bindKeyInput" auto-focus="true"></input>
+      <button class="submit-btn" bindtap="getByTicketNo">{{trans.submit_btn}}</button>
+    </view>
+  </view>
+  <block wx:if="{{userTicket}}">
+    <view bindtap="jumpToCheckout" class="message">
+      <view class="message-No">
+        <text>{{trans.ticketNo}}：</text>
+        <text>{{userTicket.ticketNo}}</text>
+      </view>
+      <view class="bar"></view>
+      <view class="layout-row layout-wrap message-content">
+        <image mode="widthFix" src="{{userTicket.product.image.url}}" class="width-20 "></image>
+        <view class="width-60 message-text">
+          <view class="message-title">{{userTicket.product.name.en}}</view>
+          <view class="message-description">{{userTicket.product.description.en}}</view>
+        </view>
+        <view class="message-account text-right">
+          <view class="message-price">￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</view>
+          <view class="message-Num">x{{userTicket.product.purchased}}</view>
+        </view>
+      </view>
+      <view class="bar"></view>
+      <view class="text-right">
+        <button wx:if="{{userTicket.status==='active'}}" class="width-20 message-btn" type="primary" catchtap="consume">{{trans.checkTicket}}</button>
+        <view wx:if="{{userTicket.status==='consumed'}}" class="width-20">{{trans.ischecked}} {{userTicket.consumedTime}}</view>
       </view>
     </view>
-    <block wx:if='{{userTicket}}'>
-      <view bindtap='jumpToCheckout' class="message">
-        <view class="message-No">
-          <text>{{trans.ticketNo}}：</text>
-          <text>{{userTicket.ticketNo}}</text>
-        </view>
-        <view class="bar"></view>
-        <view class="layout-row layout-wrap message-content">
-          <image mode='widthFix' src="{{userTicket.product.image.url}}" class="width-20 "></image>
-            <view class="width-60 message-text">
-              <view class="message-title">{{userTicket.product.name.en}}</view>
-              <view class="message-description">{{userTicket.product.description.en}}</view>
-            </view>
-            <view class="message-account text-right">
-              <view class="message-price">￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</view>
-              <view class="message-Num">x{{userTicket.product.purchased}}</view>              
-            </view>
-        </view>
-        <view class="bar"></view>
-        <view class="text-right message-btn">
-          <button wx:if='{{userTicket.status==="active"}}' class="width-20 message-btn"  type='primary' catchtap="consume">{{trans.checkTicket}}</button>
-          <button wx:if='{{userTicket.status==="consumed"}}' class="width-20 message-btn" size="mini" disabled='true' type='primary'>{{trans.ischecked}}</button>
-        </view>
-      </view>
-    </block>
-    <!-- <block wx:if='{{userTicket}}'>
-        <view>tickNo.{{userTicket.ticketNo}}</view>
-        <view>status:{{userTicket.status}}</view>
-        <button bindtap="jumpToCheckout">查看详情</button>
-        <button wx:if='{{userTicket.status==="active"}}' class="submit-btn" bindtap="consume">核销</button>
-    </block> -->
-    <button class="layout-btn" bindtap="signout">{{trans.logout}}</button>
+  </block>
+  <!-- <block wx:if='{{userTicket}}'><view>tickNo.{{userTicket.ticketNo}}</view><view>status:{{userTicket.status}}</view><button bindtap="jumpToCheckout">查看详情</button><button wx:if='{{userTicket.status==="active"}}' class="submit-btn" bindtap="consume">核销</button></block> -->
+  <button class="layout-btn" bindtap="signout">{{trans.logout}}</button>
 </view>

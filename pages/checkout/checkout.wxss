@@ -16,7 +16,7 @@ page{
   background-color: white;
 }
 .ticket-img{
-  width: 80%;
+  width: 50%;
 }
 .ticket-name{
   text-align: center;

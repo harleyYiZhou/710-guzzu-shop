@@ -1,4 +1,5 @@
-const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
+const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
+// const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
 // const API_PREFIX = 'http://192.168.31.253:4020/mpapi/2/';
 const app = getApp();
 const translate = require('../../utils/translate.js');

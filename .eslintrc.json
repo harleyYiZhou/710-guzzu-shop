@@ -4,6 +4,7 @@
 		"App": true,
 		"wx": true,
 		"getApp": true,
-		"Page": true
+		"Page": true,
+		"getCurrentPages": true
 	}
 }

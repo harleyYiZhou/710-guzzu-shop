@@ -53,7 +53,8 @@ Page({
 		} else {
 			// 这里修改成跳转的页面
 			wx.request({
-				url: 'https://mp-dev.guzzu.cn/mpapi/2/Auth.signinWithEmail',
+				// url: 'https://mp-dev.guzzu.cn/mpapi/2/Auth.signinWithEmail',
+				url: 'https://mp.guzzu.cn/mpapi/2/Auth.signinWithEmail',
 				data: {
 					email: that.data.email,
 					password: that.data.password,

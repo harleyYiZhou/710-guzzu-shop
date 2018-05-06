@@ -79,7 +79,7 @@ Page({
 						beginTime: util.formatTime(new Date(res.product.eventStartTime), 'Y-M-D'),
 						endTime: util.formatTime(new Date(res.product.eventEndTime), 'Y-M-D'),
 						createTime: util.formatTime(new Date(res.createdAt), 'Y-M-D h:m:s'),
-						useTime: util.formatTime(new Date(res.updatedAt), 'Y-M-D h:m:s')
+						useTime: util.formatTime(new Date(res.consumedAt), 'Y-M-D h:m:s')
 					});
 				}
 			},

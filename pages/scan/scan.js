@@ -45,23 +45,7 @@ Page({
 					this.setData({
 						ticketNo: res.result
 					});
-					wx.showLoading();
-					let params = {
-						storeId: wx.getStorageSync('storeId'),
-						ticketNo: res.result
-					};
-					util.callApi('UserTicket.get', params).then(
-						res => {
-							console.log(res);
-							this.setData({
-								userTicket: res
-							});
-							wx.hideLoading();
-						},
-						err => {
-							console.log(err);
-							wx.hideLoading();
-						});
+					this.jumpToCheckout();
 				}
 			},
 			fail (err) {
@@ -80,8 +64,8 @@ Page({
 		var gsid = wx.getStorageSync('gsid');
 		console.log(gsid);
 		wx.request({
-			url: 'https://mp-dev.guzzu.cn/mpapi/2/Auth.signout',
-
+			// url: 'https://mp-dev.guzzu.cn/mpapi/2/Auth.signout',
+			url: 'https://mp.guzzu.cn/mpapi/2/Auth.signout',
 			header: {
 				'x-guzzu-sessionid': gsid
 			},
@@ -105,31 +89,7 @@ Page({
 			});
 			return;
 		}
-		wx.showLoading();
-		let params = {
-			storeId: this.data.storeId,
-			ticketNo: this.data.ticketNo
-		};
-		util.callApi('UserTicket.get', params).then(
-			res => {
-				console.log(res);
-				this.setData({
-					userTicket: res
-				});
-				wx.hideLoading();
-			},
-			err => {
-				console.log(err);
-				wx.showToast({
-					title: that.data.trans.invalidTicket,
-					icon: 'loading',
-					duration: 1000
-				});
-				this.setData({
-					userTicket: ''
-				});
-				wx.hideLoading();
-			});
+		this.jumpToCheckout();
 	},
 	consume () {
 		let ticketNo = this.data.ticketNo || this.data.userTicket.ticketNo;

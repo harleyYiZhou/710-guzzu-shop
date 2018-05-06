@@ -4,44 +4,57 @@
     <view class="group">
       <icon wx:if="{{isClick}}" class="icon" type="success" size="30" />
       <icon wx:if="{{!isClick}}" class="icon" type="cancel" size="30" />
-      <text><text>{{trans.status}}：</text>
-      <text>{{status}}</text></text>
-      
+      <view>
+        <text>{{trans.status}}：</text>
+        <text>{{status}}</text>
+      </view>
     </view>
   </view>
   <view class="ticket-message">
-    <image class="ticket-img" mode='widthFix' src="{{userTicket.product.image.url}}"></image>
+    <image class="ticket-img" mode="widthFix" src="{{userTicket.product.image.url}}"></image>
     <view class="ticket-name">{{userTicket.product.name.en}}</view>
+    <view class="ticket-name">{{userTicket.ticketNo}}</view>
   </view>
   <view class="ticket-account">
-     <view class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.sum}}：</text><text class="text-right width-80">￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.productPrice}}：</text><text class="text-right width-80">￥{{userTicket.product.price/100}}</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.productPurcharse}}：</text><text class="text-right width-80">{{userTicket.product.purchased}}</text></view>
-    <view class="bar"></view>
-    <view class="text-right"><text>{{trans.total}}:</text><text>￥{{(userTicket.product.price/100)*userTicket.product.purchased}}</text></view>
-  </view> 
+    <view class="layout-row layout-wrap">
+      <text class="width-20 text-left">{{trans.productPrice}}：</text>
+      <text class="text-right width-80">￥{{userTicket.product.price/100}}</text>
+    </view>
+  </view>
   <view class="ticket-buyer">
-    <view class="layout-row layout-wrap"><text class="width-30 ">{{trans.buyerName}}：</text><text class="text-right width-70">{{buyerName}}</text></view>
-    <view class="layout-row layout-wrap"><text class="width-30 ">{{trans.buyerPhone}}：</text><text class="text-right width-70">{{buyerPhone}}</text></view>
-    <view wx:if="{{email!=null}}" class="layout-row layout-wrap"><text class="width-30 ">{{trans.buyerEmail}}：</text><text class="text-right width-70">{{email}}</text></view>
+    <view class="layout-row layout-wrap">
+      <text class="width-30 ">{{trans.attendeeName}}：</text>
+      <text class="text-right width-70">{{userTicket.attendeeName}}</text>
+    </view>
+    <view class="layout-row layout-wrap">
+      <text class="width-30 ">{{trans.attendeePhone}}：</text>
+      <text class="text-right width-70">{{userTicket.attendeePhone}}</text>
+    </view>
+    <view class="layout-row layout-wrap">
+      <text class="width-30 ">{{trans.buyerName}}：</text>
+      <text class="text-right width-70">{{buyerName}}</text>
+    </view>
   </view>
   <view class="ticket-date">
-  <view class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.ticketNo}}：</text><text class="text-right width-80">{{userTicket.ticketNo}}</text></view>
-    <view wx:if="{{userTicket.product.eventStartTime!=null}}" class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.limitedTime}}：</text><text class="text-right width-80">{{beginTime}} 至 {{endTime}}</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.createTime}}：</text><text class="text-right width-80">{{createTime}}</text></view>
-    <view wx:if="{{isClick}}" class="layout-row layout-wrap"><text class="width-20 text-left">{{trans.useTime}}：</text><text class="text-right width-80">{{useTime}}</text></view>
-  </view> 
-  
-  <!-- <view class="ticket-detail">
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">编号：</text><text class="width-60">45225423584</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">用户名：</text><text>Harley</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">价格：</text><text>￥100*2</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">使用期限：</text><text>2018-3-1至2018-4-4</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">创建时间：</text><text>2018-3-5 12:00</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">使用时间：</text><text>2018-4-1 13:00</text></view>
-    <view class="layout-row layout-wrap"><text class="width-20 text-right">状态：</text><text>未核销</text></view>
-  </view> -->
+    <view class="layout-row layout-wrap">
+      <text class="width-20 text-left">{{trans.ticketNo}}：</text>
+      <text class="text-right width-80">{{userTicket.ticketNo}}</text>
+    </view>
+    <view wx:if="{{userTicket.product.eventStartTime!=null}}" class="layout-row layout-wrap">
+      <text class="width-20 text-left">{{trans.eventTime}}：</text>
+      <text class="text-right width-80">{{beginTime}} 至 {{endTime}}</text>
+    </view>
+    <view class="layout-row layout-wrap">
+      <text class="width-20 text-left">{{trans.createTime}}：</text>
+      <text class="text-right width-80">{{createTime}}</text>
+    </view>
+    <view wx:if="{{isClick}}" class="layout-row layout-wrap">
+      <text class="width-20 text-left">{{trans.useTime}}：</text>
+      <text class="text-right width-80">{{useTime}}</text>
+    </view>
+  </view>
+  <!-- <view class="ticket-detail"><view class="layout-row layout-wrap"><text class="width-20 text-right">编号：</text><text class="width-60">45225423584</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">用户名：</text><text>Harley</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">价格：</text><text>￥100*2</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">使用期限：</text><text>2018-3-1至2018-4-4</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">创建时间：</text><text>2018-3-5 12:00</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">使用时间：</text><text>2018-4-1 13:00</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">状态：</text><text>未核销</text></view></view> -->
   <view style="position: relative">
-    <button type="primary" disabled="{{isClick}}" bindtap='consume' class="consume-btn">{{trans.haschecked}}</button>
+    <button type="primary" disabled="{{isClick}}" bindtap="consume" class="consume-btn">{{trans.haschecked}}</button>
   </view>
 </view>
