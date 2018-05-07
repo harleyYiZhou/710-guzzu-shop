@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>button_enter</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="s2-main" transform="translate(-200.000000, -222.000000)">
+            <g id="Group" transform="translate(200.000000, 222.000000)">
+                <g id="button_enter">
+                    <circle id="Oval-2" fill="#424242" cx="60" cy="60" r="60"></circle>
+                    <g id="ic_enter" transform="translate(28.000000, 28.000000)">
+                        <g>
+                            <rect id="Rectangle" fill-opacity="0" fill="#FF0000" x="0" y="0" width="64" height="64"></rect>
+                            <path d="M4,9 L60,9 L60,55 L4,55 L4,9 Z M8,13 L56,13 L56,51 L8,51 L8,13 Z M26,39 L26,43 L30,43 L30,39 L26,39 Z M32,39 L32,43 L36,43 L36,39 L32,39 Z M38,39 L38,43 L42,43 L42,39 L38,39 Z M18,23 L14,23 L14,27 L18,27 L18,43 L22,43 L22,21 L18,21 L18,23 Z" id="Combined-Shape" fill="#F5F5F5"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
