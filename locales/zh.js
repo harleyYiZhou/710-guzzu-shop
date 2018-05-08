@@ -2,7 +2,11 @@ module.exports = {
 	common: {
 		loading: '加载中',
 		error: '加载失败',
-		logout: '登出'
+		logout: '登出',
+    bottomNav: {
+      checkTicket: '验票',
+      setting: '设置'
+    }
 	},
 	login: {
 		email: '邮箱',
@@ -33,7 +37,9 @@ module.exports = {
 		checkTicket: '核销',
 		logout: '登出',
 		ischecked: '已核销',
-		invalidTicket: '无效票码'
+		invalidTicket: '无效票码',
+    scanCode: '扫码',
+    enterCode: '输入券码'
 	},
 	checkout: {
 		status: '电子券状态',
@@ -56,5 +62,9 @@ module.exports = {
 	completeCheck: {
 		haschecked: '核销',
 		backToIndex: '回到主页'
-	}
+	},
+  selectStore: {
+    selectStore: '请选择店铺'
+  }
+ 
 };

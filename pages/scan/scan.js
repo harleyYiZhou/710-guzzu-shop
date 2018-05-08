@@ -1,6 +1,7 @@
 // pages/scan/scan.js
 var util = require('../../utils/util.js');
 const translate = require('../../utils/translate.js');
+const app=getApp();
 
 Page({
 
@@ -11,7 +12,8 @@ Page({
 		message: '',
 		storeId: '',
 		ticketNo: '',
-		userTicket: null
+		userTicket: null,
+    selected: '0'
 	},
 	onLoad: function(options) {
 		if (!this.data.locale || this.data.locale !== app.globalData.locale) {
@@ -20,14 +22,24 @@ Page({
 		var that = this;
 		util.callApi('Auth.getCurrentSession', {}).then(function(res) {
 			console.log(res);
-			wx.setStorageSync('storeId', res.accessRights[0].store._id);
+      var locale=wx.getStorageSync('locale');
+      console.log(locale);
+      if(locale==='en'){
+        var storeName = res.accessRights[0].store.name.en;
+      }else{
+        var storeName = res.accessRights[0].store.name.zh;
+      }
+      wx.setStorageSync('storeId', res.accessRights[0].store._id);
+			wx.setStorageSync('storeName',storeName);
 			that.setData({
-				storeId: wx.getStorageSync('storeId')
+				storeId: wx.getStorageSync('storeId'),
+        storeName: wx.getStorageSync('storeName')        
 			});
 		});
 	},
 	onReady: function() {
 	},
+  btnNavLink: app.btnNavLink,
 	bindKeyInput (e) {
 		this.setData({
 			ticketNo: e.detail.value.replace(/\s/g, '')
@@ -60,6 +72,11 @@ Page({
 			}
 		});
 	},
+  selectStore:function(){
+    wx.navigateTo({
+      url: '../select-store/select-store',
+    })
+  },
 	signout: function() {
 		var gsid = wx.getStorageSync('gsid');
 		console.log(gsid);
@@ -131,7 +148,7 @@ Page({
 	},
 	jumpToCheckout: function() {
 		util.checkLogin();
-		var str1 = this.data.storeId;
+		var str1 = wx.getStorageSync('storeId');
 		var str2 = this.data.ticketNo;
 		wx.navigateTo({
 			url: '../checkout/checkout?storeId=' + str1 + '&ticketNo=' + str2

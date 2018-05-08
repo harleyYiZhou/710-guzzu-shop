@@ -1,31 +1,32 @@
 <view class="">
-    <view class="login-icon">
-        <image class="login-img" src="../images/loginLog.jpg"></image>
-    </view>
-    <view class="login-from">
+  <view class="login-icon">
+    <image class="login-img" src="../../img/icon.svg" ></image>
+  </view>
+  <view class="login-from">
 
-        <!--账号-->
-        <view class="inputView">
-            <image class="nameImage" src="../images/name.png"></image>
-            <label class="loginLab">{{trans.email}}</label>
-            <input class="inputText" placeholder="{{trans.email_text}}" bindinput="emailInput" value='{{email}}' />
-        </view>
-        <view class="line"></view>
-
-        <!--密码-->
-        <view class="inputView">
-            <image class="keyImage" src="../images/key.png"></image>
-            <label class="loginLab">{{trans.password}}</label>
-            <input class="inputText" password="true" placeholder="{{trans.password_text}}" bindinput="passwordInput" />
-        </view>
-
-        <!--按钮-->
-        <view class="loginBtnView">
-            <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">{{trans.login_btn}}</button>
-        </view>
+    <!--账号-->
+    <view class="inputView">
+      <image class="nameImage" src="../images/name.png"></image>
+      <label class="loginLab">{{trans.email}}</label>
+      <input class="inputText" placeholder="{{trans.email_text}}" bindinput="emailInput" value='{{email}}' />
     </view>
-    <view class="language-btn">
-      <button size="mini" lang='zh' type="warn" class="zh-btn" bindtap='chooseLang' data-lang="zh">中文</button>
-      <button size="mini" lang='en' type="warn" class="en-btn" bindtap='chooseLang' data-lang="en">Eng</button>
+    <view class="line"></view>
+
+    <!--密码-->
+    <view class="inputView">
+      <image class="keyImage" src="../images/key.png"></image>
+      <label class="loginLab">{{trans.password}}</label>
+      <input class="inputText" password="true" placeholder="{{trans.password_text}}" bindinput="passwordInput" />
     </view>
+
+    <!--按钮-->
+    <view class="zan-btn">
+      <!-- <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">{{trans.login_btn}}</button> -->
+      <button class="zan-btn zan-btn--primary" bindtap="login">{{trans.login_btn}}</button>
+    </view>
+  </view>
+  <view class="language-btn">
+    <button size="mini" lang='zh' type="default" class="zh-btn" bindtap='chooseLang' data-lang="zh">中文</button>
+    <button size="mini" lang='en' type="default" class="en-btn" bindtap='chooseLang' data-lang="en">ENGLISH</button>
+  </view>
 </view>

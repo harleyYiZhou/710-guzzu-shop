@@ -1,0 +1,20 @@
+/* components/bottom-nav/bottom-nav.wxss */
+.bottom-nav{
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  width: 100%;
+  padding: 10rpx;
+  font-size: 30rpx;
+}
+.zan-col{
+  text-align: center;
+}
+.nav-icon{
+  border-radius: 50%;
+  width: 50rpx;
+  height: 50rpx;
+}
+.selected{
+  color: blue;
+}

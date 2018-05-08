@@ -45,9 +45,32 @@ App({
 				}
 			}
 		});
-	},
+	}, 
+  btnNavLink: function (e) {
+    this.globalData.selected = e.currentTarget.id;
+    console.log(this.globalData);
+    wx.showLoading({
+      title: 'loading',
+    })
+    var id = e.currentTarget.id;
+    switch (id) {
+      case "0":
+        wx.redirectTo({
+          url: '/pages/scan/scan',
+        });
+        break;
+      case "1":
+        wx.redirectTo({
+          url: '/pages/setting/setting',
+        });
+        break;
+
+    }
+    wx.hideLoading();
+  },
 	globalData: {
 		userInfo: null,
-		locale: 'zh'
+		locale: 'zh',
+    selected: '0'
 	}
 });

@@ -61,6 +61,18 @@
 					"name": "complete-check",
 					"pathName": "pages/complete-check/complete-check",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "setting",
+					"pathName": "pages/setting/setting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "select-store",
+					"pathName": "pages/select-store/select-store",
+					"query": ""
 				}
 			]
 		}

@@ -1,0 +1,16 @@
+<!--pages/select-store/select-store.wxml-->
+<view>
+  <view class="zan-panel-title">{{trans.selectStore}}</view>
+  <view class="zan-panel">
+    <radio-group class="radio-group" bindchange="changeStore">
+      <view class="zan-cell" wx:for="{{stores}}">
+        <view class="zan-cell__bd">{{item.storeName}}</view>
+        <view class="zan-cell__ft">
+          <label class="radio">
+            <radio value="{{item}}" checked="{{item.storeId===storeId}}" />
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>

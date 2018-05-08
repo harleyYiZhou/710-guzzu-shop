@@ -2,7 +2,11 @@ module.exports = {
 	common: {
 		loading: 'loading',
 		error: 'Fail to load',
-		logout: 'Sign out'
+		logout: 'Sign out',
+    bottomNav: {
+      checkTicket: 'Check Ticket',
+      setting: 'Settings'
+    }
 	},
 	login: {
 		email: 'Email',
@@ -32,7 +36,9 @@ module.exports = {
 		checkTicket: 'Consume',
 		logout: 'Sign out',
 		ischecked: 'Consumed',
-		invalidTicket: 'Invalid ticketNo'
+		invalidTicket: 'Invalid ticketNo',
+    scanCode:'Scan Code',
+    enterCode:'Enter number'
 	},
 	checkout: {
 		status: 'Ticket status',
@@ -55,5 +61,9 @@ module.exports = {
 	completeCheck: {
 		haschecked: 'Consumed',
 		backToIndex: 'Back to index'
-	}
+	},
+  selectStore:{
+    selectStore:'Select store'
+  }
+  
 };
