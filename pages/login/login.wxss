@@ -1,82 +1,12 @@
 /* pages/login/login.wxss */
-page{ 
- height: 100%;
- background: #EEEEEE; 
-} 
-  
-.container { 
- height: 100%; 
- display: flex; 
- flex-direction: column; 
- padding: 0; 
- box-sizing: border-box; 
- background-color: #f2f2f2;
- position: relative;
-} 
-  
 /*登录图片*/
 .login-icon{ 
  flex: none; 
  text-align: center;
  background: #0D47A1;
- height: 400rpx;
+ height: 300rpx;
 } 
- .login-img{ 
- width: 200rpx;
- height: 400rpx;
- /* height: 200rpx; */
- /* border-radius: 50%; */
+.login-img{ 
+ width: 300rpx;
+ height: 300rpx;
 }  
-  
-/*表单内容*/
-.login-from { 
- flex: auto; 
- height:100%; 
-} 
-  
-.inputView { 
- background-color: #fff; 
- line-height: 44px; 
-} 
-/*输入框*/
-.nameImage, .keyImage { 
- margin-left: 22px; 
- width: 14px; 
- height: 14px
-} 
-  
-.loginLab { 
- margin: 15px 15px 15px 10px; 
- color: #545454; 
- font-size: 14px
-} 
-.inputText { 
- flex: block; 
- float: right; 
- text-align: right; 
- margin-right: 22px; 
- margin-top: 11px; 
- color: #cccccc; 
- font-size: 14px
-} 
-  
-.line { 
- width: 100%; 
- height: 1px; 
- background-color: #cccccc; 
- margin-top: 1px; 
-} 
-/*按钮*/
-
-.language-btn{
-  width: 100%;
-  text-align: center;
-  margin-top: 100rpx;
-}
-.zh-btn{
-  margin-right: 10rpx;
-}
-.zan-btn{
-    margin: 30rpx auto;  
-    /* margin-left: 30rpx; */
-}

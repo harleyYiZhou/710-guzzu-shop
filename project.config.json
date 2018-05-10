@@ -33,43 +33,43 @@
 			"current": 1,
 			"list": [
 				{
-					"id": -1,
+					"id": 1,
 					"name": "login",
 					"pathName": "pages/login/login",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "scan",
 					"pathName": "pages/scan/scan",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "login-again",
 					"pathName": "pages/login-again/login-again",
 					"query": ""
 				},
 				{
-					"id": 3,
+					"id": 4,
 					"name": "checkout",
 					"pathName": "pages/checkout/checkout",
 					"query": "storeId=5a18375b4fe1eb3fbe993c39&ticketNo=3044400907900602"
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "complete-check",
 					"pathName": "pages/complete-check/complete-check",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "setting",
 					"pathName": "pages/setting/setting",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "select-store",
 					"pathName": "pages/select-store/select-store",
 					"query": ""

@@ -1,8 +1,8 @@
 
 const app = getApp();
 const translate = require('../../utils/translate.js');
-var util=require('../../utils/util.js');
-var api=require('../../utils/api.js');
+var util = require('../../utils/util.js');
+var api = require('../../utils/api.js');
 
 Page({
 	data: {
@@ -23,73 +23,49 @@ Page({
 	// 获取输入账号
 	emailInput: function(e) {
 		this.setData({
-			email: e.detail.value.replace(/\s/g, '')
+			email: e.detail.detail.value
 		});
 	},
 	// 获取输入密码
 	passwordInput: function(e) {
 		this.setData({
-			password: e.detail.value.replace(/\s/g, '')
+			password: e.detail.detail.value
 		});
 	},
 
 	// 登录
 	login: function() {
 		var that = this;
-		if (this.data.email.length === 0 || this.data.password.length === 0) {
+		this.setData({loading: true});
+		// 这里修改成跳转的页面
+		var param = {
+			email: that.data.email,
+			password: that.data.password,
+			clientType: 'tickettool'
+		};
+		api.signinWithEmail(param).then(function(res) {
+			that.setData({ loading: false });
+			console.log(res.data);
+			if (res.user) {
+				wx.setStorageSync('gsid', res._id);
+				wx.setStorageSync('email', res.user.email);
+				toScan(that);
+			} else {
+				wx.showToast({
+					title: that.data.trans.login_error,
+					icon: 'none',
+					duration: 2000
+				});
+			}
+		}, (error) => {
+			console.log(error);
+			this.setData({ loading: false });
 			wx.showToast({
-				title: this.data.trans.loading,
-				icon: 'loading',
+				title: that.data.trans.login_error,
+				icon: 'none',
 				duration: 2000
 			});
-		} else {
-			// 这里修改成跳转的页面
-      var param={
-        email: that.data.email,
-        password: that.data.password,
-        clientType: 'mp.guzzu.cn'
-      };
-      api.signinWithEmail(param).then(function(res){
-        console.log(res.data);
-        if (res.user) {
-          wx.setStorageSync('gsid', res._id);
-          wx.setStorageSync('email', res.user.email);
-          toScan(that);
-        } else {
-          wx.showToast({
-            title: that.data.trans.login_error,
-            icon: 'none',
-            duration: 2000
-          });
-        }
-      })
-			// wx.request({
-			// 	url: `${API_PREFIX}Auth.signinWithEmail`,
-			// 	data: {
-			// 		email: that.data.email,
-			// 		password: that.data.password,
-			// 		clientType: 'mp.guzzu.cn'
-			// 	},
-			// 	method: 'POST',
-			// 	header: {
-			// 		withCredentials: true
-			// 	},
-			// 	success: function(res) {
-			// 		console.log(res.data);
-			// 		if (res.data.user) {
-			// 			wx.setStorageSync('gsid', res.data._id);
-			// 			wx.setStorageSync('email', res.data.user.email);
-			// 			toScan(that);
-			// 		} else {
-			// 			wx.showToast({
-			// 				title: that.data.trans.login_error,
-			// 				icon: 'none',
-			// 				duration: 2000
-			// 			});
-			// 		}
-			// 	}
-			// });
-		}
+		});
 	},
 	chooseLang: function(e) {
 		console.log(e.target.dataset.lang);
@@ -105,7 +81,7 @@ function toScan (that) {
 		duration: 1500
 	});
 	setTimeout(() => {
-		wx.navigateTo({
+		wx.redirectTo({
 			url: '../scan/scan'
 		});
 	}, 1000);
