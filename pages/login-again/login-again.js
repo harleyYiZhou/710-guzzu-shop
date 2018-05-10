@@ -1,5 +1,6 @@
 // pages/login-again/login-again.js
 const translate = require('../../utils/translate.js');
+var util =require('../../utils/util.js');
 Page({
 
 	/**
@@ -51,35 +52,25 @@ Page({
 				duration: 2000
 			});
 		} else {
-			// 这里修改成跳转的页面
-			wx.request({
-				// url: 'https://mp-dev.guzzu.cn/mpapi/2/Auth.signinWithEmail',
-				url: 'https://mp.guzzu.cn/mpapi/2/Auth.signinWithEmail',
-				data: {
-					email: that.data.email,
-					password: that.data.password,
-					clientType: 'mp.guzzu.cn'
-				},
-				method: 'POST',
-				header: {
-					withCredentials: true
-				},
-				success: function(res) {
-					console.log(res.data);
-					if (res.data.user) {
-						console.log(1);
-						wx.setStorageSync('gsid', res.data._id);
-						wx.setStorageSync('email', res.data.email);
-						wx.navigateBack();
-					} else {
-						wx.showToast({
-							title: that.data.trans.login_error,
-							icon: 'none',
-							duration: 2000
-						});
-					}
-				}
-			});
+      var param = {
+        email: that.data.email,
+        password: that.data.password,
+        clientType: 'mp.guzzu.cn'
+      };
+      util.callApi('Auth.signinWithEmail', param).then(function (res) {
+        console.log(res.data);
+        if (res.user) {
+          wx.setStorageSync('gsid', res._id);
+          wx.setStorageSync('email', res.user.email);
+          toScan(that);
+        } else {
+          wx.showToast({
+            title: that.data.trans.login_error,
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      })
 		}
 	},
 	loginAnother: function() {
@@ -90,3 +81,14 @@ Page({
 		});
 	}
 });
+function toScan(that) {
+  wx.showToast({
+    title: that.data.trans.success,
+    duration: 1500
+  });
+  setTimeout(() => {
+    wx.navigateTo({
+      url: '../scan/scan'
+    });
+  }, 1000);
+}

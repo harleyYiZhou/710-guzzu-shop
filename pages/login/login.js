@@ -1,8 +1,8 @@
-const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
-// const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
-// const API_PREFIX = 'http://192.168.31.253:4020/mpapi/2/';
+
 const app = getApp();
 const translate = require('../../utils/translate.js');
+var util=require('../../utils/util.js');
+var api=require('../../utils/api.js');
 
 Page({
 	data: {
@@ -44,32 +44,51 @@ Page({
 			});
 		} else {
 			// 这里修改成跳转的页面
-			wx.request({
-				url: `${API_PREFIX}Auth.signinWithEmail`,
-				data: {
-					email: that.data.email,
-					password: that.data.password,
-					clientType: 'mp.guzzu.cn'
-				},
-				method: 'POST',
-				header: {
-					withCredentials: true
-				},
-				success: function(res) {
-					console.log(res.data);
-					if (res.data.user) {
-						wx.setStorageSync('gsid', res.data._id);
-						wx.setStorageSync('email', res.data.user.email);
-						toScan(that);
-					} else {
-						wx.showToast({
-							title: that.data.trans.login_error,
-							icon: 'none',
-							duration: 2000
-						});
-					}
-				}
-			});
+      var param={
+        email: that.data.email,
+        password: that.data.password,
+        clientType: 'mp.guzzu.cn'
+      };
+      api.signinWithEmail(param).then(function(res){
+        console.log(res.data);
+        if (res.user) {
+          wx.setStorageSync('gsid', res._id);
+          wx.setStorageSync('email', res.user.email);
+          toScan(that);
+        } else {
+          wx.showToast({
+            title: that.data.trans.login_error,
+            icon: 'none',
+            duration: 2000
+          });
+        }
+      })
+			// wx.request({
+			// 	url: `${API_PREFIX}Auth.signinWithEmail`,
+			// 	data: {
+			// 		email: that.data.email,
+			// 		password: that.data.password,
+			// 		clientType: 'mp.guzzu.cn'
+			// 	},
+			// 	method: 'POST',
+			// 	header: {
+			// 		withCredentials: true
+			// 	},
+			// 	success: function(res) {
+			// 		console.log(res.data);
+			// 		if (res.data.user) {
+			// 			wx.setStorageSync('gsid', res.data._id);
+			// 			wx.setStorageSync('email', res.data.user.email);
+			// 			toScan(that);
+			// 		} else {
+			// 			wx.showToast({
+			// 				title: that.data.trans.login_error,
+			// 				icon: 'none',
+			// 				duration: 2000
+			// 			});
+			// 		}
+			// 	}
+			// });
 		}
 	},
 	chooseLang: function(e) {

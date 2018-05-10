@@ -13,11 +13,15 @@
       <image  mode="widthFix" src="../../img/button_scan.svg"></image>
       <view>{{trans.scanCode}}</view>
     </view>
-    <view class="zan-col zan-col-12">
+    <view class="zan-col zan-col-12" bindtap="modalinput">
       <image  mode="widthFix" src="../../img/button_enter.svg"></image>
       <view>{{trans.enterCode}}</view>
     </view>
   </view>
+  <!--券码模态框-->
+  <modal hidden="{{hiddenmodalput}}" title="请输入券码" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+    <input type="number" placeholder="请输入内容" bindinput="bindKeyInput" value="{{enterTicketNo}}" auto-focus/>  
+</modal>  
   <!-- <view class="container">
     <button class="circle-btn" bindtap="scan">
       <image class="scan_img" src="../images/scan.png"></image>

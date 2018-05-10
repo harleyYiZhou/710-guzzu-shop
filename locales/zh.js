@@ -56,8 +56,8 @@ module.exports = {
 		createTime: '创建时间',
 		eventTime: '活动时间',
 		useTime: '核销时间',
-		haschecked: '核销',
-		nochecked: '未核销'
+		checked: '已核销',
+		check: '核销'
 	},
 	completeCheck: {
 		haschecked: '核销',

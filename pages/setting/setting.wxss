@@ -1,2 +1,6 @@
 /* pages/setting/setting.wxss */
 @import "../../components/bottom-nav/bottom-nav";
+
+page{
+  background: #eeeeee;
+}

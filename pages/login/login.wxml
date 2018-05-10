@@ -20,10 +20,10 @@
     </view>
 
     <!--按钮-->
-    <view class="zan-btn">
+     <view style="margin: 30rpx;"> 
       <!-- <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">{{trans.login_btn}}</button> -->
       <button class="zan-btn zan-btn--primary" bindtap="login">{{trans.login_btn}}</button>
-    </view>
+     </view> 
   </view>
   <view class="language-btn">
     <button size="mini" lang='zh' type="default" class="zh-btn" bindtap='chooseLang' data-lang="zh">中文</button>

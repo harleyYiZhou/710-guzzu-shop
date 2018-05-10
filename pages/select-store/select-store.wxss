@@ -1,1 +1,4 @@
 /* pages/select-store/select-store.wxss */
+page{
+  background: #eeeeee;
+}

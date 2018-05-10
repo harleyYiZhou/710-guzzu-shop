@@ -35,6 +35,8 @@ Page({
 
 	backTo: function() {
 		util.checkLogin();
-		wx.navigateBack();
+		wx.redirectTo({
+      url: '../scan/scan',
+    });
 	}
 });

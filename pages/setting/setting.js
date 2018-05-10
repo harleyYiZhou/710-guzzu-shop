@@ -5,6 +5,7 @@ const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
 const app = getApp();
 const translate = require('../../utils/translate.js');
 var util = require('../../utils/util.js');
+var api=require('../../utils/api.js');
 
 
 Page({
@@ -37,7 +38,8 @@ Page({
     });
   },
   logout:function(){
-    util.callApi('Auth.signout',{}).then(function(res){
+    let param={};
+    api.signout(param).then(function(res){
       wx.removeStorageSync('gsid');
       wx.reLaunch({
         url: '../login/login',

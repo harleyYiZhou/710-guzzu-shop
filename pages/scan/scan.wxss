@@ -1,85 +1,8 @@
-/* pages/scan/scan.wxss */
 @import "../../components/bottom-nav/bottom-nav";
-
-.circle-btn{
-  width: 300rpx;
-  height: 300rpx;
-  font-size: 50px;
-  vertical-align: center;
-  margin-bottom: 50rpx;
-  border: 0px;
-}
-.circle-btn::after{
-border: none;
-}
-.scan_img{
-  width: 300rpx;
-  height: 300rpx;
-  margin-left: -25rpx;
+page{
+  background: #eeeeee;
 }
 
-.numInput{
-  border: 1px solid #666666;
-  font-size: 30rpx;
-}
-.submit-btn{
-  font-size: 25rpx
-}
-.display-flex{
-  display: flex
-}
-.input-group{
-  margin-top: 50rpx;
-}
-.layout-btn{
-  margin-bottom: 20px;
-   bottom: -100px; 
-  width: 30%;
-}
-.message{
-  font-size: 30rpx;
-  font-family: "微软雅黑";
-  border: 1px solid #e1e3ef;
-  margin: 20rpx;
-  padding: 10rpx;
-}
-.message-content{
-  padding: 10rpx;
-  margin-bottom: 20rpx;
-  margin-top: 20rpx;
-}
-.message-No{
-  font-size: 25rpx;
-  margin-bottom: 10rpx;
-}
-.message-text{
-  height: 35rpx; 
-  line-height:35rpx;
-  padding-left: 10rpx;
-}
-.message-title{
-
-}
-.message-description{
-  font-size: 25rpx;
-  color: #666666
-}
-.message-account{
-  width: 18%;
-}
-.message-price{
-  font-size: 25rpx;
-  color: red
-}
-.message-Num{
-  font-size: 25rpx;
-}
-.message-btn{
-  font-size: 30rpx;
-  line-height:2.3;
-  padding:0;
-  margin-right: 0rpx;
-}
 
 .content{
   margin-top:200rpx;

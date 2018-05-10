@@ -9,6 +9,7 @@
 }
 .zan-col{
   text-align: center;
+  margin: 7rpx auto;
 }
 .nav-icon{
   border-radius: 50%;

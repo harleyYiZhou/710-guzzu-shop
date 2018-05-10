@@ -2,6 +2,7 @@
 var util = require('../../utils/util.js');
 const translate = require('../../utils/translate.js');
 const app=getApp();
+var api=require("../../utils/api.js");
 
 Page({
 
@@ -13,14 +14,17 @@ Page({
 		storeId: '',
 		ticketNo: '',
 		userTicket: null,
-    selected: '0'
+    selected: '0',
+    hiddenmodalput: true,//可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框 
+    enterTicketNo: null
 	},
 	onLoad: function(options) {
 		if (!this.data.locale || this.data.locale !== app.globalData.locale) {
 			translate.langData(this);
 		}
 		var that = this;
-		util.callApi('Auth.getCurrentSession', {}).then(function(res) {
+    let param={};
+    api.getCurrentSession(param).then(function(res) {
 			console.log(res);
       var locale=wx.getStorageSync('locale');
       console.log(locale);
@@ -77,24 +81,7 @@ Page({
       url: '../select-store/select-store',
     })
   },
-	signout: function() {
-		var gsid = wx.getStorageSync('gsid');
-		console.log(gsid);
-		wx.request({
-			// url: 'https://mp-dev.guzzu.cn/mpapi/2/Auth.signout',
-			url: 'https://mp.guzzu.cn/mpapi/2/Auth.signout',
-			header: {
-				'x-guzzu-sessionid': gsid
-			},
-			method: 'POST',
-			success: function(res) {
-				wx.removeStorageSync('gsid');
-				wx.navigateTo({
-					url: '../login/login'
-				});
-			}
-		});
-	},
+
 	getByTicketNo: function() {
 		var that = this;
 		util.checkLogin();
@@ -123,7 +110,7 @@ Page({
 			storeId: this.data.storeId,
 			ticketNo
 		};
-		util.callApi('UserTicket.consume', params).then(res => {
+    api.consumeTicket(params).then(res => {
 			this.setData({
 				userTicket: res
 			});
@@ -150,10 +137,54 @@ Page({
 		util.checkLogin();
 		var str1 = wx.getStorageSync('storeId');
 		var str2 = this.data.ticketNo;
-		wx.navigateTo({
-			url: '../checkout/checkout?storeId=' + str1 + '&ticketNo=' + str2
-		});
-	}
+    let param={
+      storeId: wx.getStorageSync('storeId'),
+      ticketNo: this.data.ticketNo
+    };
+    api.getUserTicket(param).then(res=>{
+      wx.showLoading({
+        title: 'loading',
+      });
+      wx.navigateTo({
+        url: '../checkout/checkout?storeId=' + str1 + '&ticketNo=' + str2
+      });
+    },
+    err=>{
+      wx.showLoading({
+        title: 'error',
+      });
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
+    })
+		
+	},
+  //点击按钮痰喘指定的hiddenmodalput弹出框  
+  modalinput: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput
+    })
+  },
+  //取消按钮  
+  cancel: function () {
+    this.setData({
+      enterTicketNo: null,
+      hiddenmodalput: true
+    });
+  },
+  //确认  
+  confirm: function (e) {
+    this.setData({
+      hiddenmodalput: true,
+      ticketNo:this.data.enterTicketNo
+    });
+    this.jumpToCheckout()
+  },
+  bindKeyInput: function (e) {
+    this.setData({
+      enterTicketNo: e.detail.value
+    })
+  },  
 });
 
 // function callApi(url, params) {

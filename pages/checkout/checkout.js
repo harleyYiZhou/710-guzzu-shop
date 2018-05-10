@@ -2,6 +2,7 @@
 var util = require('../../utils/util.js');
 const translate = require('../../utils/translate.js');
 const app = getApp();
+var api=require('../../utils/api.js');
 
 Page({
 
@@ -40,7 +41,7 @@ Page({
 			storeId: options.storeId,
 			ticketNo: options.ticketNo
 		};
-		util.callApi('UserTicket.get', params).then(
+    api.getUserTicket(params).then(
 			res => {
 				console.log(res);
 				this.setData({
@@ -92,7 +93,7 @@ Page({
 				storeId: that.data.userTicket.store._id,
 				userId: that.data.userTicket.user
 			};
-			util.callApi('Customer.getByUserId', params).then(res => {
+      api.getByUserId(params).then(res => {
 				console.log(res);
 				that.setData({
 					buyerName: res.user.name,
@@ -137,7 +138,7 @@ Page({
 			storeId: this.data.storeId,
 			ticketNo: this.data.ticketNo
 		};
-		util.callApi('UserTicket.consume', params).then(res => {
+    api.consumeTicket(params).then(res => {
 			this.setData({
 				userTicket: res
 			});

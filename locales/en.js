@@ -55,8 +55,8 @@ module.exports = {
 		createTime: 'Created at',
 		eventTime: 'Event time',
 		useTime: 'Consumed at',
-		haschecked: 'Consume ticket',
-		nochecked: 'Consumed'
+    checked: 'Consumed',
+    check: 'Consume ticket'
 	},
 	completeCheck: {
 		haschecked: 'Consumed',

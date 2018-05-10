@@ -1,6 +1,63 @@
 <!--pages/checkout/checkout.wxml-->
-<view class="checkout-container ticket-detail">
-  <view class="ticket-no">
+<view class="">
+  <view class="zan-cell zan-panel">
+    <view class="zan-cell__bd">
+      <view class="">
+        <view class="zan-card__thumb">
+          <image class="zan-card__img" src="{{userTicket.product.image.url}}" mode="aspectFit"></image>
+        </view>
+        <view class="zan-card__detail">
+          <view class="zan-card__detail-row">
+            <view class=" zan-ellipsis--l2">
+              {{userTicket.product.name.en}}
+            </view>
+          </view>
+
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card__left-col">
+              ￥{{userTicket.product.price/100}}
+            </view>
+          </view>
+
+          <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="">{{trans.status}}：{{status}} </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="zan-cell__ft">
+      <icon wx:if="{{isClick}}" class="zan-icon zan-icon-passed" type="success" size="30" />
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-cell ">
+      <view class="zan-cell__bd">{{trans.attendeeName}}</view>
+      <view class="zan-cell__ft">{{buyerName}}</view>
+    </view>
+    <view class="zan-cell ">
+      <view class="zan-cell__bd">{{trans.attendeePhone}}</view>
+      <view class="zan-cell__ft">{{buyerPhone}}</view>
+    </view>
+  </view>
+  <view class="zan-panel">
+    <view class="zan-cell ">
+      <view class="zan-cell__bd">{{trans.ticketNo}}</view>
+      <view class="zan-cell__ft">{{userTicket.ticketNo}}</view>
+    </view>
+    <view class="zan-cell ">
+      <view class="zan-cell__bd">{{trans.createTime}}</view>
+      <view class="zan-cell__ft">{{createTime}}</view>
+    </view>
+    <view class="zan-cell ">
+      <view class="zan-cell__bd">{{trans.buyerName}}</view>
+      <view class="zan-cell__ft">{{buyerName}}</view>
+    </view>
+    <view wx:if="{{isClick}}" class="zan-cell ">
+      <view class="zan-cell__bd">{{trans.useTime}}</view>
+      <view class="zan-cell__ft">{{useTime}}</view>
+    </view>
+  </view>
+  <!-- <view class="ticket-no">
     <view class="group">
       <icon wx:if="{{isClick}}" class="icon" type="success" size="30" />
       <icon wx:if="{{!isClick}}" class="icon" type="cancel" size="30" />
@@ -9,8 +66,8 @@
         <text>{{status}}</text>
       </view>
     </view>
-  </view>
-  <view class="ticket-message">
+  </view> -->
+  <!-- <view class="ticket-message">
     <image class="ticket-img" mode="widthFix" src="{{userTicket.product.image.url}}"></image>
     <view class="ticket-name">{{userTicket.product.name.en}}</view>
     <view class="ticket-name">{{userTicket.ticketNo}}</view>
@@ -52,9 +109,13 @@
       <text class="width-20 text-left">{{trans.useTime}}：</text>
       <text class="text-right width-80">{{useTime}}</text>
     </view>
-  </view>
+  </view> -->
   <!-- <view class="ticket-detail"><view class="layout-row layout-wrap"><text class="width-20 text-right">编号：</text><text class="width-60">45225423584</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">用户名：</text><text>Harley</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">价格：</text><text>￥100*2</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">使用期限：</text><text>2018-3-1至2018-4-4</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">创建时间：</text><text>2018-3-5 12:00</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">使用时间：</text><text>2018-4-1 13:00</text></view><view class="layout-row layout-wrap"><text class="width-20 text-right">状态：</text><text>未核销</text></view></view> -->
-  <view style="position: relative">
+  <!-- <view style="position: relative">
     <button type="primary" disabled="{{isClick}}" bindtap="consume" class="consume-btn">{{trans.haschecked}}</button>
-  </view>
+  </view> -->
+</view>
+<view class="zan-panel" style="position: absolute;bottom: 0px; left: 0px;width: 100%;">
+  <button  wx:if="{{!isClick}}" class="zan-btn zan-btn--large zan-btn--primary"  bindtap="consume">{{trans.check}}</button>
+  <button wx:if="{{isClick}}" class="zan-btn zan-btn--large zan-btn--primary" disabled="{{isClick}}" >{{trans.checked}}</button>
 </view>

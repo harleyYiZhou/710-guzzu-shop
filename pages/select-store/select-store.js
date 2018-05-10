@@ -2,6 +2,7 @@
 const app = getApp();
 const translate = require('../../utils/translate.js');
 var util = require('../../utils/util.js');
+var api =require('../../utils/api.js');
 
 Page({
 
@@ -26,7 +27,8 @@ Page({
       locale: wx.getStorageSync('locale'),
       storeId:wx.getStorageSync('storeId')
     });
-    util.callApi('Auth.getCurrentSession', {}).then(function (res) {
+    let param={};
+    api.getCurrentSession(param).then(function (res) {
       var arr=[];
       console.log(res);
       that.setData({

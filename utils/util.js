@@ -1,13 +1,17 @@
-// const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
+const API_PREFIX = 'https://mp-dev.guzzu.cn/mpapi/2/';
 // const API_PREFIX = 'http://192.168.31.253:4020/mpapi/2/';
-const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
+// const API_PREFIX = 'https://mp.guzzu.cn/mpapi/2/';
 
 function checkLogin () {
 	console.log(1);
+  
 	if (!wx.getStorageSync('gsid')) {
 		console.log(1);
+    wx.showLoading({
+      title: '登录超时',
+    });
 		wx.navigateTo({
-			url: '../login-again/login-again'
+			url: '../login/login'
 		});
 	}
 }
