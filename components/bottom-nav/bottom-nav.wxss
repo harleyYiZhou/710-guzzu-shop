@@ -4,7 +4,7 @@
   bottom: 0rpx;
   left: 0;
   width: 100%;
-  font-size: 24rpx;
+  font-size: 30rpx;
   background-color: #FFFFFF;
 }
 .bottom-nav-row{
@@ -12,12 +12,12 @@
 }
 .bottom-nav-col{
   text-align: center;
-  margin: 14rpx auto;
+  margin: 20rpx auto;
 }
 .nav-icon{
   width: 36rpx;
   height: 36rpx;
 }
 .selected{
-  color: #0D47A1;
+  color: #1E88E5;
 }
