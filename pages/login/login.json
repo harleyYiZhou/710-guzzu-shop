@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "Login",
+	"navigationBarTitleText": "Login",
 	"usingComponents": {
 		"zan-icon": "../../zanui/dist/icon/index",
 		"zan-field": "../../zanui/dist/field/index",
