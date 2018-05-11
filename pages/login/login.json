@@ -1,8 +1,8 @@
 {
 	"navigationBarTitleText": "Login",
 	"usingComponents": {
-		"zan-icon": "../../zanui/dist/icon/index",
-		"zan-field": "../../zanui/dist/field/index",
-		"zan-button": "../../zanui/dist/btn/index"
+		"zan-icon": "/zanui/dist/icon/index",
+		"zan-field": "/zanui/dist/field/index",
+		"zan-button": "/zanui/dist/btn/index"
 	}
 }

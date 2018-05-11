@@ -1,18 +1,17 @@
 <!--components/bottom-nav/bottom-nav.wxml-->
 <template name="bottom-nav">
-  <view class="zan-panel bottom-nav">
-    <view class="zan-row">
-      <view class="zan-col zan-col-12" id="0" bindtap='btnNavLink'>
+  <view class="bottom-nav">
+    <view class="bottom-nav-row">
+      <view class="bottom-nav-col" id="0" bindtap='btnNavLink'>
         <image wx:if="{{selected!=='0'}}" src="../../img/ic_ticket_off.svg" class="nav-icon"></image>
         <image wx:if="{{selected==='0'}}" src="../../img/ic_ticket_on.svg" class="nav-icon"></image>
         <view class="{{selected==='0'?'selected':default}}">{{trans.bottomNav.checkTicket}}</view>
       </view>
-      <view class="zan-col zan-col-12" id="1" bindtap='btnNavLink'>
+      <view class="bottom-nav-col" id="1" bindtap='btnNavLink'>
         <image wx:if="{{selected!=='1'}}" src="../../img/ic_settings_off.svg" class="nav-icon"></image>
         <image wx:if="{{selected==='1'}}" src="../../img/ic_settings_on.svg" class="nav-icon"></image>
         <view class="{{selected==='1'?'selected':default}}">{{trans.bottomNav.setting}}</view>
       </view>
     </view>
   </view>
-
 </template>
