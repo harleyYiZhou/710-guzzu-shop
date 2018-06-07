@@ -1,6 +1,6 @@
 /* pages/login/login.wxss */
 /*登录图片*/
-.login-icon{ 
+ .login-icon{ 
  flex: none; 
  text-align: center;
  background: #0D47A1;
@@ -9,4 +9,4 @@
 .login-img{ 
  width: 300rpx;
  height: 300rpx;
-}  
+}   

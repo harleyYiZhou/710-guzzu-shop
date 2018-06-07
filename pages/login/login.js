@@ -46,9 +46,9 @@ Page({
 		api.signinWithEmail(param).then(function(res) {
 			that.setData({ loading: false });
 			console.log(res.data);
-			if (res.user) {
+			if (res.operator) {
 				wx.setStorageSync('gsid', res._id);
-				wx.setStorageSync('email', res.user.email);
+				wx.setStorageSync('email', res.operator.email);
 				toScan(that);
 			} else {
 				wx.showToast({

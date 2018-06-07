@@ -1,1 +1,7 @@
-{}
+{
+  "usingComponents": {
+    "zan-panel": "/zanui/dist/panel/index",
+    "zan-cell": "/zanui/dist/cell/index",
+    "zan-cell-group": "/zanui/dist/cell-group/index"
+  }
+}

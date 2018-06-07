@@ -1,2 +1,91 @@
 /**app.wxss**/
 @import "/zanui/dist/index.wxss";
+
+.text-left{
+  text-align: left;
+}
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+
+.w-70{
+  width: 70%;
+}
+.width-100{
+  width: 100%;
+}
+
+
+.mx-30{
+  margin-left: 30rpx !important;
+  margin-right: 30rpx !important;
+}
+.my-20{
+  margin-top: 20rpx ;
+  margin-bottom: 20rpx !important;
+}
+.my-30{
+  margin-top: 30rpx !important;
+  margin-bottom: 30rpx !important;
+}
+.my-40{
+  margin-top: 40rpx !important;
+  margin-bottom: 40rpx !important;
+}
+.my-160{
+  margin-top: 160rpx !important;
+  margin-bottom: 160rpx !important;
+}
+.mt-20{
+  margin-top: 20rpx !important;
+}
+.mt-40{
+  margin-top: 40rpx !important;
+}
+.mt-200{
+  margin-top: 200rpx !important;
+}
+
+.mb-80{
+  margin-bottom: 80rpx !important;
+}
+.mb-100{
+  margin-bottom: 100rpx !important;
+}
+.mb-120{
+  margin-bottom: 120rpx !important;
+}
+.mb-140{
+  margin-bottom: 140rpx !important;
+}
+
+.p-20{
+  padding: 20rpx;
+}
+.px-30{
+  padding-left: 30rpx !important;
+  padding-right: 30rpx !important;
+}
+.py-20{
+  padding-top: 20rpx !important;
+  padding-bottom: 20rpx !important;
+}
+
+
+.position-fixed{
+  position: fixed;
+}
+
+.left-0{
+  left: 0rpx;
+}
+.bottom-0{
+  bottom: 0rpx;
+}
+
+.text-lg{
+  font-size: 80rpx;
+}

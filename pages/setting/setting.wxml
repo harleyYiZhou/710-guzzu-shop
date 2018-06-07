@@ -2,7 +2,29 @@
 <import src="../../components/bottom-nav/bottom-nav" />
 
 <view>
-  <view class="zan-panel">
+  <zan-panel>
+    <zan-cell-group>
+      <radio-group class="radio-group" bindchange="chooseLang">
+        <zan-cell title="中文">
+          <label class="radio" slot="footer">
+            <radio value="zh" checked="{{locale==='zh'}}" />{{item.value}}
+          </label>
+        </zan-cell>
+        <zan-cell title="ENGLISH">
+          <label class="radio" slot="footer">
+            <radio value="en" checked="{{locale==='en'}}" />{{item.value}}
+          </label>
+        </zan-cell>
+      </radio-group>
+    </zan-cell-group>
+  </zan-panel>
+  <view class="mt-40">
+    <zan-panel>
+      <zan-cell title="{{trans.logout}}" bindtap="logout"></zan-cell>
+    </zan-panel>
+  </view>
+
+  <!-- <view class="zan-panel">
     <radio-group class="radio-group" bindchange="chooseLang">
       <view class="zan-cell">
         <view class="zan-cell__bd">中文</view>
@@ -21,11 +43,11 @@
         </view>
       </view>
     </radio-group>
-  </view>
-  <view class="zan-panel">
+  </view> -->
+  <!-- <view class="zan-panel">
     <view class="zan-cell" bindtap="logout">
       <view class="zan-cell__bd">{{trans.logout}}</view>
     </view>
-  </view>
+  </view> -->
   <template is="bottom-nav" data="{{selected,trans}}"></template>
 </view>

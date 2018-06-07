@@ -1,6 +1,65 @@
 <!--pages/checkout/checkout.wxml-->
 <view class="">
-  <view class="zan-cell zan-panel">
+  <view class="mt-20">
+    <zan-panel>
+      <view class=" my-20">
+        <zan-row>
+          <zan-col col="6" offset="1" col-class="custom-zan-col">
+            <image class="width-100" src="{{userTicket.product.image.url}}" mode="widthFix"></image>
+          </zan-col>
+          <zan-col col="12" offset="1" col-class="custom-zan-col">
+            <view class="zan-card__detail">
+              <view class="zan-card__detail-row">
+                <view class=" zan-ellipsis--l2">
+                  {{userTicket.product.name.en}}
+                </view>
+              </view>
+              <view class="zan-card__detail-row zan-c-gray-darker">
+                <view class="zan-card__left-col">
+                  ￥{{userTicket.product.price/100}}
+                </view>
+              </view>
+              <view class="zan-card__detail-row zan-c-gray-darker">
+                <view class="">{{trans.status}}：{{status}} </view>
+              </view>
+            </view>
+          </zan-col>
+          <zan-col col="4">
+             <!-- <icon class="zan-icon zan-icon-passed" type="success" size="30" /> -->
+             <!-- <icon type="success" size="30"></icon> -->
+             <zan-cell wx:if="{{isClick}}"><icon slot="footer" type="success" size="30"></icon></zan-cell>
+          </zan-col>
+        </zan-row>
+      </view>
+    </zan-panel>
+  </view>
+  <view class="mt-20">
+    <zan-panel>
+      <zan-cell title="{{trans.attendeeName}}">
+        <view slot="footer">{{buyerName}}</view>
+      </zan-cell>
+      <zan-cell title="{{trans.attendeePhone}}">
+        <view slot="footer">{{buyerPhone}}</view>
+      </zan-cell>
+    </zan-panel>
+  </view>
+  <view class="mt-20">
+    <zan-panel>
+      <zan-cell title="{{trans.ticketNo}}">
+        <view slot="footer">{{userTicket.ticketNo}}</view>
+      </zan-cell>
+      <zan-cell title="{{trans.createTime}}">
+        <view slot="footer">{{createTime}}</view>
+      </zan-cell>
+      <zan-cell title="{{trans.buyerName}}">
+        <view slot="footer">{{buyerName}}</view>
+      </zan-cell>
+      <zan-cell wx:if="{{isClick}}" title="{{trans.useTime}}">
+        <view slot="footer">{{useTime}}</view>
+      </zan-cell>
+    </zan-panel>
+  </view>
+  <!-- <view class="zan-cell zan-panel">
     <view class="zan-cell__bd">
       <view class="">
         <view class="zan-card__thumb">
@@ -28,8 +87,8 @@
     <view class="zan-cell__ft">
       <icon wx:if="{{isClick}}" class="zan-icon zan-icon-passed" type="success" size="30" />
     </view>
-  </view>
-  <view class="zan-panel">
+  </view> -->
+  <!-- <view class="zan-panel">
     <view class="zan-cell ">
       <view class="zan-cell__bd">{{trans.attendeeName}}</view>
       <view class="zan-cell__ft">{{buyerName}}</view>
@@ -56,7 +115,7 @@
       <view class="zan-cell__bd">{{trans.useTime}}</view>
       <view class="zan-cell__ft">{{useTime}}</view>
     </view>
-  </view>
+  </view> -->
   <!-- <view class="ticket-no">
     <view class="group">
       <icon wx:if="{{isClick}}" class="icon" type="success" size="30" />
@@ -115,7 +174,7 @@
     <button type="primary" disabled="{{isClick}}" bindtap="consume" class="consume-btn">{{trans.haschecked}}</button>
   </view> -->
 </view>
-<view class="zan-panel" style="position: absolute;bottom: 0px; left: 0px;width: 100%;">
-  <button  wx:if="{{!isClick}}" class="zan-btn zan-btn--large zan-btn--primary"  bindtap="consume">{{trans.check}}</button>
-  <button wx:if="{{isClick}}" class="zan-btn zan-btn--large zan-btn--primary" disabled="{{isClick}}" >{{trans.checked}}</button>
+<view class="position-fixed left-0 bottom-0 width-100">
+  <button wx:if="{{!isClick}}" class="width-100" type="primary" bindtap="consume">{{trans.check}}</button>
+  <button wx:if="{{isClick}}" class="width-100" type="warn" disabled="{{isClick}}">{{trans.checked}}</button>
 </view>

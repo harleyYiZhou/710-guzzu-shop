@@ -1,12 +1,12 @@
 <!--pages/checked/checked.wxml-->
-<view class="container">
-  <view>
-    <icon class="checked-icon" type="success" size="200"></icon>
+<view class="text-center">
+  <view class="mt-40">
+    <icon  type="success" size="200"></icon>
   </view> 
-  <view>
-    <text class="checked-text">{{trans.haschecked}}</text>
+  <view class="mt-20">
+    <text class="text-lg">{{trans.haschecked}}</text>
   </view>
   <view style="position: relative">
-    <button type="primary" disabled="{{isClick}}" bindtap='backTo' class="back-btn">{{trans.backToIndex}}</button>
+    <button type="primary" disabled="{{isClick}}" bindtap='backTo' class="position-fixed left-0 bottom-0 width-100">{{trans.backToIndex}}</button>
   </view>
 </view>

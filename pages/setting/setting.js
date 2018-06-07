@@ -44,6 +44,13 @@ Page({
       wx.reLaunch({
         url: '../login/login',
       });
+    }).catch(function(res){
+      console.log(res);
+      wx.showToast({
+        title: res.data.detail.message,
+        icon: 'loading',
+        duration: 2000
+      })
     })
   },
   chooseLang: function (e) {

@@ -3,10 +3,3 @@ page{
   background: #eeeeee;
 }
 
-
-.content{
-  margin-top:200rpx;
-}
-.content image{
-  width:70%;
-}

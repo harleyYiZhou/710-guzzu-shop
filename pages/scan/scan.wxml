@@ -2,26 +2,43 @@
 <import src="../../components/bottom-nav/bottom-nav" />
 
 <view>
-  <view class="zan-panel">
-    <view class="zan-cell zan-cell--access">
+  <zan-panel>
+    <zan-cell title="{{storeName}}" is-link bindtap="selectStore"></zan-cell>
+    <!-- <view class="zan-cell zan-cell--access">
       <view class="zan-cell__bd">{{storeName}}</view>
       <view class="zan-cell__ft" bindtap="selectStore"></view>
-    </view>
-  </view>
-  <view class="zan-row content">
+    </view> -->
+  </zan-panel>
+  <zan-row row-class="mt-200">
+    <zan-col col="12"  col-class="custom-zan-col text-center ">
+      <view bindtap="scan">
+        <image mode="widthFix" src="../../img/button_scan.svg" class="w-70"></image>
+        <view>{{trans.scanCode}}</view>
+      </view>
+
+    </zan-col>
+    <zan-col col="12"  col-class="custom-zan-col text-center ">
+      <view bindtap="modalinput">
+        <image mode="widthFix" src="../../img/button_enter.svg" class="w-70"></image>
+        <view>{{trans.enterCode}}</view>
+      </view>
+
+    </zan-col>
+  </zan-row>
+  <!-- <view class="zan-row content">
     <view class="zan-col zan-col-12" bindtap="scan">
-      <image  mode="widthFix" src="../../img/button_scan.svg"></image>
+      <image mode="widthFix" src="../../img/button_scan.svg"></image>
       <view>{{trans.scanCode}}</view>
     </view>
     <view class="zan-col zan-col-12" bindtap="modalinput">
-      <image  mode="widthFix" src="../../img/button_enter.svg"></image>
+      <image mode="widthFix" src="../../img/button_enter.svg"></image>
       <view>{{trans.enterCode}}</view>
     </view>
-  </view>
+  </view> -->
   <!--券码模态框-->
-  <modal hidden="{{hiddenmodalput}}" title="请输入券码" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
-    <input type="number" placeholder="请输入内容" bindinput="bindKeyInput" value="{{enterTicketNo}}" auto-focus/>  
-</modal>  
+  <modal hidden="{{hiddenmodalput}}" title="请输入券码" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input type="number" placeholder="请输入内容" bindinput="bindKeyInput" value="{{enterTicketNo}}" auto-focus/>
+  </modal>
   <!-- <view class="container">
     <button class="circle-btn" bindtap="scan">
       <image class="scan_img" src="../images/scan.png"></image>

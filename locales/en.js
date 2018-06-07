@@ -41,7 +41,7 @@ module.exports = {
     enterCode:'Enter number'
 	},
 	checkout: {
-		status: 'Ticket status',
+		status: 'status',
 		total: 'Total',
 		sum: 'ProductSum',
 		productPrice: 'Unit price',

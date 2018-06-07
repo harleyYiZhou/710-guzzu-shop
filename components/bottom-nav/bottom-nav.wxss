@@ -1,23 +1,13 @@
 /* components/bottom-nav/bottom-nav.wxss */
 .bottom-nav{
-  position: fixed;
-  bottom: 0rpx;
-  left: 0;
-  width: 100%;
   font-size: 30rpx;
   background-color: #FFFFFF;
 }
-.bottom-nav-row{
-  display:flex;
-}
-.bottom-nav-col{
-  text-align: center;
-  margin: 20rpx auto;
-}
-.nav-icon{
+
+ .nav-icon{
   width: 36rpx;
   height: 36rpx;
-}
+} 
 .selected{
   color: #1E88E5;
 }
