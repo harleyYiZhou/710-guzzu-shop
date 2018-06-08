@@ -36,14 +36,15 @@ Page({
       });
       var locale = wx.getStorageSync('locale');
       console.log(locale);
-      if (locale === 'en') {
-        var storeName = res.accessRights[0].store.name.en;
-      } else {
-        var storeName = res.accessRights[0].store.name.zh;
-      }
+      
       for(var i=0;i<res.accessRights.length;i++){
+        if (locale === 'en') {
+          var storeName = res.accessRights[i].store.name.en;
+        } else {
+          var storeName = res.accessRights[i].store.name.zh;
+        }
         arr.push({
-          storeId:res.accessRights[0].store._id,
+          storeId:res.accessRights[i].store._id,
           storeName: storeName
         })
       }
@@ -60,10 +61,13 @@ Page({
 
   },
   changeStore:function(e){
-    wx.setStorageSync('storeId', e.detail.value.storeId);
-    wx.setStorageSync('storeName', e.detail.value.storeName);
-    console.log(e.detail.value.storeId);
-    console.log(e.detail.value.storeName);
+    var that=this;
+    wx.setStorageSync('storeId', e.detail.value);
+    for(let i=0;i<that.data.stores.length;i++){
+      if(that.data.stores[i].storeId==e.detail.value){
+        wx.setStorageSync('storeName', that.data.stores[i].storeName);
+      }
+    }
     wx.navigateBack({ })
   }
 })

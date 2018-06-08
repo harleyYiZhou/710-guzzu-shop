@@ -7,7 +7,7 @@
         <view wx:for="{{stores}}">
           <zan-cell title="{{item.storeName}}">
             <label class="radio" slot="footer">
-              <radio value="{{item}}" checked="{{item.storeId===storeId}}" />
+              <radio value="{{item.storeId}}" checked="{{item.storeId===storeId}}" />
             </label>
           </zan-cell>
         </view>

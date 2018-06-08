@@ -35,10 +35,10 @@
       <view>{{trans.enterCode}}</view>
     </view>
   </view> -->
-  <!--券码模态框-->
+  <!-- 券码模态框--> 
   <modal hidden="{{hiddenmodalput}}" title="请输入券码" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
-    <input type="number" placeholder="请输入内容" bindinput="bindKeyInput" value="{{enterTicketNo}}" auto-focus/>
-  </modal>
+    <input  type="number" placeholder="请输入券码" bindinput="bindKeyInput" value="{{enterTicketNo}}" />
+  </modal>  
   <!-- <view class="container">
     <button class="circle-btn" bindtap="scan">
       <image class="scan_img" src="../images/scan.png"></image>
@@ -49,7 +49,7 @@
       <button class="submit-btn" bindtap="getByTicketNo">{{trans.submit_btn}}</button>
     </view>
   </view> -->
-  <block wx:if="{{userTicket}}">
+  <!-- <block wx:if="{{userTicket}}">
     <view bindtap="jumpToCheckout" class="message">
       <view class="message-No">
         <text>{{trans.ticketNo}}：</text>
@@ -73,7 +73,7 @@
         <view wx:if="{{userTicket.status==='consumed'}}" class="width-20">{{trans.ischecked}} {{userTicket.consumedTime}}</view>
       </view>
     </view>
-  </block>
+  </block> -->
   <!-- <block wx:if='{{userTicket}}'><view>tickNo.{{userTicket.ticketNo}}</view><view>status:{{userTicket.status}}</view><button bindtap="jumpToCheckout">查看详情</button><button wx:if='{{userTicket.status==="active"}}' class="submit-btn" bindtap="consume">核销</button></block> -->
   <!-- <button class="layout-btn" bindtap="signout">{{trans.logout}}</button> -->
   <template is="bottom-nav" data="{{trans,selected}}"></template>

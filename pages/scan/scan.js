@@ -43,6 +43,12 @@ Page({
 	},
 	onReady: function() {
 	},
+  onShow: function(){
+    this.setData({
+      storeId: wx.getStorageSync('storeId'),
+      storeName: wx.getStorageSync('storeName') 
+    })
+  },
   btnNavLink: app.btnNavLink,
 	bindKeyInput (e) {
 		this.setData({

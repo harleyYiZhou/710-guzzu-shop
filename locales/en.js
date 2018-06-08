@@ -60,7 +60,7 @@ module.exports = {
 	},
 	completeCheck: {
 		haschecked: 'Consumed',
-		backToIndex: 'Back to index'
+		backToIndex: 'Back to previous'
 	},
   selectStore:{
     selectStore:'Select store'

@@ -61,7 +61,7 @@ module.exports = {
 	},
 	completeCheck: {
 		haschecked: '核销',
-		backToIndex: '回到主页'
+		backToIndex: '返回上级'
 	},
   selectStore: {
     selectStore: '请选择店铺'
